@@ -38,7 +38,8 @@ var bio = {
 
 
 //BIO Format and Display
-function displayBio() {
+bio.display = function() {
+//function displayBio() {
     var formattedbioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formmattedbioName = HTMLheaderName.replace("%data%", bio.name);
     var formmattedbioRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -59,7 +60,7 @@ function displayBio() {
         }
     }
 }
-displayBio();
+bio.display();
 
 //Education Data
 var education = {
@@ -67,17 +68,16 @@ var education = {
         "name": "DEVRY",
         "location": "Long Beach, CA",
         "degree": "Bachelors of Science",
-        "major": "EET",
-        "date": "2003-2005",
+        "majors": ["EET"],
+        "dates": "2003-2005",
         "url": "http://devry.com"
     }],
     "onlineCourses": [{
-            "title": "Full Stack Developer - Udacity",
+            "title": "Full Stack Developer",
             "school": "Udacity",
             "location": "Mountain View, CA",
             "degree": "Extracurricular",
-            "major": "Front End Development",
-            "date": "March 2018 - Current",
+            "dates": "March 2018 - Current",
             "url": "http://udacity.com"
         },
         {
@@ -85,8 +85,7 @@ var education = {
             "school": "Udacity",
             "location": "Mountain View, CA",
             "degree": "Nanodegree",
-            "major": "Intro to Programming",
-            "date": "February 2017 - August 2017",
+            "dates": "February 2017 - August 2017",
             "url": "http://udacity.com"
         }
 
@@ -94,11 +93,12 @@ var education = {
 };
 
 //Education Format and Display (both School and Online Courses)
-function displayEducation() {
+education.display = function() {
+//function displayEducation() {
     //School Format and Display
     if (education.schools.length > 0) {
         for (var school = 0; school < education.schools.length; school++) {
-            //for (school in education.schools) {
+        //for (school in education.schools) {
             $("#education").append(HTMLschoolStart);
 
             var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
@@ -111,10 +111,10 @@ function displayEducation() {
             $(".education-entry:last").append(formattedLocation);
 
 
-            var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].date);
+            var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
             $(".education-entry:last").append(formattedSchoolDates);
 
-            var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+            var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[school]);
             $(".education-entry:last").append(formattedSchoolMajor);
         }
     }
@@ -132,7 +132,7 @@ function displayEducation() {
             $(".education-entry:last").append(formattedOnlineCourseTitleSchool);
             //$(".education-entry:last").append(formattedOnlineCourseTitle);
 
-            var formattedOnlineCourseDate = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].date);
+            var formattedOnlineCourseDate = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].dates);
             $(".education-entry:last").append(formattedOnlineCourseDate);
 
             var formattedOnlineCourseURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
@@ -140,10 +140,12 @@ function displayEducation() {
         }
     }
 }
-displayEducation();
+education.display();
+//displayEducation();
 
 //Contacts Format and Display at Top and Bottom
-function displayContacts() {
+bio.contacts.display = function() {
+//function displayContacts() {
     if (bio.skills.length > 0) {
         var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
         $("#topContacts").append(formattedMobile);
@@ -166,7 +168,8 @@ function displayContacts() {
         $("#footerContacts").append(formattedLocation);
     }
 }
-displayContacts();
+bio.contacts.display();
+//displayContacts();
 
 //Work Data
 var work = {
@@ -188,7 +191,8 @@ var work = {
 };
 
 //Work Format and Display
-function displayWork() {
+work.display = function() {
+//function displayWork() {
     for (var job = 0; job < work.jobs.length; job++) {
         //for (job in work.jobs) {
         $("#workExperience").append(HTMLworkStart);
@@ -208,7 +212,8 @@ function displayWork() {
         $(".work-entry:last").append(formattedLocation);
     }
 }
-displayWork();
+work.display();
+//displayWork();
 
 // Project Data
 var turtleArt = [
