@@ -59,7 +59,7 @@ bio.display = function() {
             $("#skills").append(formattedSkills);
         }
     }
-}
+};
 bio.display();
 
 //Education Data
@@ -139,7 +139,7 @@ education.display = function() {
             $(".education-entry:last").append(formattedOnlineCourseURL);
         }
     }
-}
+};
 education.display();
 //displayEducation();
 
@@ -167,7 +167,7 @@ bio.contacts.display = function() {
         $("#topContacts").append(formattedLocation);
         $("#footerContacts").append(formattedLocation);
     }
-}
+};
 bio.contacts.display();
 //displayContacts();
 
@@ -202,16 +202,17 @@ work.display = function() {
         var formattedEmployerTitle = formattedEmployer + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
 
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(formattedLocation);
+        
         var formattedEmployerDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
         $(".work-entry:last").append(formattedEmployerDates);
 
         var formattedEmployerDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formattedEmployerDescription);
 
-        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        $(".work-entry:last").append(formattedLocation);
     }
-}
+};
 work.display();
 //displayWork();
 
